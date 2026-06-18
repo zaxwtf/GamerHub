@@ -1,5 +1,16 @@
+.funciones{
+  display: flex;
+  justify-content: center;
+  gap: 5vw;
+  margin: 0px;
+  margin-top: 10px;
+
+}
+
 .card{
   border: 1px solid;
-  margin: auto;
+  margin: 0;
   border-radius: 10px;
+  width: 20vw;
+  height: 15vw;
 }
