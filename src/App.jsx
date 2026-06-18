@@ -1,8 +1,5 @@
 import './App.css'
-import Counter from './components/Counter'
-import Greetings from './components/Greetings'
 import {Routes, Route, Link} from "react-router-dom"
-import { EffectPage } from './Pages/EffectPage'
 import { Home } from './Pages/Home'
 import { About } from './Pages/About'
 import { Characters } from './Pages/Characters'
