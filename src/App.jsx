@@ -1,17 +1,30 @@
 import './App.css'
 import Counter from './components/Counter'
 import Greetings from './components/Greetings'
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route, Link} from "react-router-dom"
 import { EffectPage } from './Pages/EffectPage'
+import { Home } from './Pages/Home'
+import { About } from './Pages/About'
+import { Characters } from './Pages/Characters'
+
 
 function App() {
 
   return (
+    <>
+    <div>
+      <nav>
+        | <Link to= "/">Inicio</Link> |
+        <Link to= "/characters"> Personajes</Link> |
+        <Link to= "/about"> Acerca de</Link> |
+      </nav>
+    </div>
     <Routes>
-      <Route path='/' element={<Counter/>}/>
-      <Route path='/greetings' element={<Greetings/>}/>
-      <Route path='/effect' element={<EffectPage/>}/>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/about' element={<About/>}/>
+      <Route path='/characters' element={<Characters/>}/>
     </Routes>
+    </>
   )
 }
 
