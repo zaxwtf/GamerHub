@@ -1,28 +1,17 @@
-import { useState } from "react"
+import { useContext} from "react"
+import { ThemeContext } from "../context/ThemeContext"
+
 
 
 function Counter(){
-    const [count, setCount] = useState(0)
+    const {theme, setTheme} = useContext(ThemeContext)
 
-    function add(){
-        setCount(count + 1)
-    }
-
-    function rest(){
-        setCount(count - 1)
-    }
-
-    function reset(){
-        setCount(0)
-    }
-
-    return (
-        <div>
-            <p>Conteo: {count}</p>
-            <button onClick={add}>+</button>
-            <button onClick={rest}>-</button>
-            <button onClick={reset}>R</button>
-        </div>
+    return(
+        <button onClick={()=>{
+            setTheme(theme === "light" ? "dark" : "light") 
+        }}>
+            Tema actual: {theme}
+        </button>
     )
 }
 
