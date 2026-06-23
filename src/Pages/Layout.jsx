@@ -5,13 +5,12 @@ import { Header } from "../components/Header"
 
 function Layout(){
     return (
-        <div>
-            <nav>
+        <div className="layout">
+            <nav className="mainNav">
                 | <NavLink to= "/">Inicio</NavLink> |
                 <NavLink to= "/videogames"> Videojuegos</NavLink> |
                 <NavLink to= "/about"> Acerca de</NavLink> |
             </nav>
-            <Header/>
             <ThemeSwitcher/>
             <main>
                 <Outlet/>
