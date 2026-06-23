@@ -6,7 +6,7 @@ import { RegisterForm } from "../components/RegisterForm"
 
 function Home(){
     return(
-        <div className="flex flex-col items-center ">
+        <div className="flex w-[99%] flex-col items-center ">
             <div className="bannerHome ">
                 <img src="/src/assets/fondo_GamerHub.jpg" alt="Fondo GamerHub" />
                 <h1>GamerHub</h1>
