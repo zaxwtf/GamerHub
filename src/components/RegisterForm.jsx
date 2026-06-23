@@ -28,13 +28,19 @@ function RegisterForm(){
     }
 
     return(
-        <form onSubmit={handleSubmit} action="">
-            <input onChange={handleChange} type="text" name="name" value={data.name}/>
-            {errors.name && <span>{errors.name}</span>}
-            <input onChange={handleChange} type="email" name="email" value={data.email} />
-            {errors.name && <span>{errors.email}</span>}
-            <input onChange={handleChange} type="password" name="password" value={data.password} />
-            {errors.name && <span>{errors.password}</span>}
+        <form onSubmit={handleSubmit} className="mx-auto flex max-w-md flex-col gap-4 p-6 bg-white">
+            <div className="flex flex-col gap-1">
+                <label className="text-xl">Name</label>
+                <input onChange={handleChange} type="text" name="name" value={data.name} className="rounded border border-gray-300 px-3 focus:border-purple-500 focus:outline-purple-500"/>
+                {errors.name && <span>{errors.name}</span>}
+                <label className="text-xl">Email</label>
+                <input onChange={handleChange} type="email" name="email" value={data.email} className="rounded border border-gray-300 px-3 focus:border-purple-500 focus:outline-purple-500" />
+                {errors.email && <span>{errors.email}</span>}
+                <label className="text-xl">Password</label>
+                <input onChange={handleChange} type="password" name="password" value={data.password} className="rounded border border-gray-300 px-3 focus:border-purple-500 focus:outline-purple-500" />
+                {errors.password && <span>{errors.password}</span>}
+                <button className="rounded border border-purple-500 px-30 mt-6 hover:bg-purple-600 transition duration-400">Enviar</button>
+            </div>
         </form>
     )
 }
