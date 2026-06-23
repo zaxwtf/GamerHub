@@ -6,7 +6,7 @@
 @import "tailwindcss";
 
 @theme {
-  --animate-infinite-scroll: infinite-scroll 30s infinite linear;
+  --animate-infinite-scroll: infinite-scroll 40s infinite linear;
 }
 
 @keyframes infinite-scroll {
@@ -14,7 +14,7 @@
     transform: translateX(0%);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 @layer utilities {
