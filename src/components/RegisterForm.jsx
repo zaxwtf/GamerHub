@@ -21,6 +21,7 @@ function RegisterForm(){
         const errors = {}
 
         if (!data.name.trim()) errors.name = "el nombre es obligatorio"
+        if (data.name.trim().length > 20) errors.name = "el nombre no puede tener mas de 20 caracteres"
         if (!data.email.includes("@")) errors.email = "email no valido"
         if (data.password.length < 6) errors.password = "La contraseña debe tener mas de 6 caracteres"
 
