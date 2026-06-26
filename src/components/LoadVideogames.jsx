@@ -13,7 +13,7 @@ function LoadVideogames(){
                 try {
                     setIsLoading(true)
                     setError(null)
-                    const response = await fetch(`${API}}/juegos/`)
+                    const response = await fetch(`${API}/juegos/`)
                     if (!response.ok) throw new Error("No se pudo cargar el videojuego")
                     const data = await response.json()
                     setVideogames(data)
