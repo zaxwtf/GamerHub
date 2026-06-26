@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function RegisterForm({className}){
     const [data, setData] = useState({userName:"", email:"", password:"", juegosFav:[]})
@@ -31,7 +31,7 @@ function RegisterForm({className}){
     }
     
 
-        async function sendRegister(params) {
+        async function sendRegister() {
             try {
                 const response = await fetch(`https://backendproyect-m2.onrender.com/api/usuarios/crear`, {
                     method: "POST",

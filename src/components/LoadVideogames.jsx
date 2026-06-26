@@ -5,16 +5,15 @@ function LoadVideogames(){
         const [videogames, setVideogames] = useState(null)
         const [isLoading, setIsLoading] = useState(false)
         const [error, setError] = useState(null)
-        const [page, setPage] = useState(1)
 
-        const API = import.meta.env.API_URL
+        const API = import.meta.env.VITE_API_URL
     
         useEffect(()=>{
             async function load() {
                 try {
                     setIsLoading(true)
                     setError(null)
-                    const response = await fetch(`https://backendproyect-m2.onrender.com/api/juegos/`)
+                    const response = await fetch(`${API}}/juegos/`)
                     if (!response.ok) throw new Error("No se pudo cargar el videojuego")
                     const data = await response.json()
                     setVideogames(data)
@@ -25,7 +24,7 @@ function LoadVideogames(){
                 }
             }
             load()
-        }, [page])
+        }, [])
     
     
     
