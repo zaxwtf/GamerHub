@@ -8,6 +8,7 @@ import { Layout } from './Pages/Layout'
 import { ThemeContext } from './context/ThemeContext'
 import { useState } from 'react'
 import { Register } from './Pages/Register'
+import { Login } from './Pages/Login'
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -22,6 +23,7 @@ function App() {
         <Route path='/videogames' element={<Videogames/>}/>
         <Route path='/videogames/:id' element={<VideogamesDetails/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/login' element={<Login/>}/>
       </Route>
     </Routes>
     </ThemeContext.Provider>
