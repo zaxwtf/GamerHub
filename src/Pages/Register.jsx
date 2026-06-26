@@ -2,7 +2,7 @@ import { RegisterForm } from "../components/RegisterForm"
 
 function Register(){
     return(
-        <RegisterForm/>
+        <RegisterForm className="pt-20"/>
     )
 }
 
