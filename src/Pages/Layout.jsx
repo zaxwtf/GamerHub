@@ -10,6 +10,7 @@ function Layout(){
                 <NavLink to= "/videogames">Videojuegos</NavLink>
                 <NavLink to= "/about">Acerca de</NavLink>
                 <NavLink to="/register">Registro</NavLink>
+                <NavLink to="/login">Login</NavLink>
             </nav>
             <main>
                 <Outlet/>
