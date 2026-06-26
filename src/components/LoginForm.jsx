@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm({className}){
     const [data, setData] = useState({email:"", password:""})
@@ -12,13 +13,16 @@ function LoginForm({className}){
         const {name, value} = e.target
         setData((prev)=>({...prev, [name]: value}))
     }
+    const navigate = useNavigate()
 
     async function handleSubmit(e){
+        
         e.preventDefault()
         setErrors(null)
         setIsLoading(true)
         try {
             await login(data.email, data.password)
+            navigate("/videogames")
         } catch (errors) {
             setErrors(errors.message)
         }finally{
