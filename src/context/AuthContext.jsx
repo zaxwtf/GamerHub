@@ -1,17 +1,18 @@
 import { createContext, useState } from "react";
 
-const API = import.meta.env.API_URL
+const API = import.meta.env.VITE_API_URL || "https://backendproyect-m2.onrender.com/api";
 
-export const AuthContext = createContext(null)
-export function AuthProvider({children}){
-    const [user, setUser] = useState(null)
-    const [token, setToken] = useState(()=> localStorage.getItem("token"))
+export const AuthContext = createContext(null);
 
-    async function login(email, password){
-        const response = await fetch(`${API}/users/login`, {
+export function AuthProvider({ children }) {
+    const [user, setUser] = useState(null);
+    const [token, setToken] = useState(() => localStorage.getItem("token"));
+
+    async function login(email, password) {
+        const response = await fetch(`${API}/usuarios/login`, {
             method: "POST",
-            headers:{
-                "Content-Type": "applicatiton/json"
+            headers: {
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({email, password})
         })
