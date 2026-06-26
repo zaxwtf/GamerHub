@@ -11,7 +11,7 @@ function VideogamesDetails(){
         async function load() {
             try {
                 setIsLoading(true)
-                const response = await fetch(`http://localhost:3000/api/juegos/${id}`)
+                const response = await fetch(`https://backendproyect-m2.onrender.com/api/juegos/${id}`)
                 if(!response.ok) throw new Error("No se pudo cargar el videojuego")
                 setVideogame(await response.json())
             console.log(await videogame)
