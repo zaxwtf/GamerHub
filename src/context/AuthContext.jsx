@@ -30,8 +30,8 @@ export function AuthProvider({ children }) {
             headers: {Authorization: `Bearer ${token}`}
         })
         if (!response.ok) return logout()
-            const {usuario} = await response.json()
-        setUser(usuario)
+            const data = await response.json()
+        setUser(data.user)
     }
     function logout(){
         localStorage.removeItem("token")
