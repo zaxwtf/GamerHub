@@ -32,6 +32,7 @@ export function AuthProvider({ children }) {
         if (!response.ok) return logout()
             const data = await response.json()
         setUser(data.user)
+        return data
     }
     function logout(){
         localStorage.removeItem("token")
