@@ -35,15 +35,13 @@ function LoadVideogames(){
                 {!error && !isLoading && (
                     <div className="flex  gap-5 animate-infinite-scroll pr-5">
                         {videogames?.map((videogame)=>{
-                            if (videogames.indexOf(videogame) < 20){
-                                console.log(videogame)
+                        if (videogames.indexOf(videogame) < 20){
                             return <Link className="" to={`/videogames/${videogame._id}`} key={videogame._id}>
                                 <img className="h-70 min-w-60 " src={videogame.img} alt={videogame.nombre} />
                                 </Link>}
                         })}
                         {videogames?.map((videogame)=>{
                             if (videogames.indexOf(videogame) < 20){
-                                console.log(videogame)
                             return <Link className="" to={`/videogames/${videogame._id}`} key={videogame._id}>
                                 <img className="h-70 min-w-60 " src={videogame.img} alt={videogame.nombre} />
                                 </Link>}
