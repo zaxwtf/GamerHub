@@ -33,11 +33,14 @@ function Videogames(){
                     {isLoading && <p>Cargando...</p>}
                     {error && <p>Error:</p>}
                     {!error && !isLoading && (
-                        <ul>
+                        <div className="flex flex-wrap">
                             {videogames?.map((videogame)=>{
-                                return <li><Link to= {`/videogames/${videogame._id}`} key={videogame._id}>{videogame.nombre}</Link></li>
+                                return <div className="w-[50vw] mt-10 sm:w-[33vw] md:w-[25vw] lg:w-[19.8vw]" key={videogame._id}>
+                                    <Link to={`/videogames/${videogame._id}`}><img src={videogame.img} alt={videogame.nombre} /></Link>
+                                    <h2 to= {`/videogames/${videogame._id}`}>{videogame.nombre}</h2>
+                                    </div>
                             })}
-                        </ul>
+                        </div>
                     )}
             </div>
         )
