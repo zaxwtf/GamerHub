@@ -11,7 +11,7 @@ import { useAuth } from "../hooks/useAuth";
         if(isLoading) return <p>Cargando...</p>
         if(error) return <p>Error: {error}</p>
         return (
-            <div className="flex">
+            <div className="flex flex-wrap">
                 {data?.juegosFav.map(juego =>{
                     return(
                         <div>
