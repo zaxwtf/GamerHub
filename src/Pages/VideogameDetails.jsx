@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { FavButton } from "../components/FavButton";
 
 function VideogamesDetails(){
     const {id} = useParams()
     const [videogame, setVideogame] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
+    
 
     useEffect(()=>{
         async function load() {
@@ -32,6 +34,7 @@ function VideogamesDetails(){
         <div>
             <h2>{videogame.nombre}</h2>
             <img src={videogame.img} alt={videogame.nombre} />
+            <FavButton juego={videogame._id}></FavButton>
         </div>
         )}
         
