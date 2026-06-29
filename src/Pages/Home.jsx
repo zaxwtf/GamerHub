@@ -8,7 +8,7 @@ function Home(){
     return(
         <div className="flex w-[99%] flex-col items-center ">
             <div className="bannerHome ">
-                <img className="w-[100vw] m-0 p-0" src="../src/assets/fondo_GamerHub.jpg" alt="Fondo GamerHub" />
+                <img className="w-[100vw] m-0 p-0" src="/public/fondo_GamerHub.jpg" alt="Fondo GamerHub" />
                 <h1>GamerHub</h1>
             </div>
             <h2 className="text-3xl my-8 font-black ">¡Todos tus Videojuegos favoritos al alcance de un click!</h2>
