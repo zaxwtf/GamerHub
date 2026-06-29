@@ -8,12 +8,12 @@ function Home(){
     return(
         <div className="flex w-[99%] flex-col items-center ">
             <div className="bannerHome ">
-                <img src="/src/assets/fondo_GamerHub.jpg" alt="Fondo GamerHub" />
+                <img className="w-[100vw] m-0 p-0" src="/src/assets/fondo_GamerHub.jpg" alt="Fondo GamerHub" />
                 <h1>GamerHub</h1>
             </div>
             <h2 className="text-3xl my-8 font-black ">¡Todos tus Videojuegos favoritos al alcance de un click!</h2>
             <LoadVideogames/>
-            <section className="flex justify-center gap-[5vw] mx-0 mt-[10px]">
+            <section className="flex flex-wrap justify-center gap-[5vw] mx-0 mt-[10px]">
                 <Card title= "Biblioteca extensa" description= "Encuentra cualquier videojuego que busques"/>
                 <Card title= "Sistema de Favs" description= "podrás asegurarte de tener a mano cualquier juego que necesites"/>
                 <Card title= "En colección" description= "Lleva un registro de todos los juegos que tienes en tu colección"/>
