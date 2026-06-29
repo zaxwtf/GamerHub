@@ -5,7 +5,7 @@ function Videogames(){
         const [videogames, setVideogames] = useState(null)
         const [isLoading, setIsLoading] = useState(false)
         const [error, setError] = useState(null)
-        const [page, setPage] = useState(1)
+        // const [page, setPage] = useState(1)
     
         useEffect(()=>{
             async function load() {
@@ -23,7 +23,7 @@ function Videogames(){
                 }
             }
             load()
-        }, [page])
+        }, [])
     
     
     
@@ -36,7 +36,7 @@ function Videogames(){
                         <div className="flex flex-wrap">
                             {videogames?.map((videogame)=>{
                                 return <div className="w-[50vw] mt-10 sm:w-[33vw] md:w-[25vw] lg:w-[19.8vw]" key={videogame._id}>
-                                    <Link to={`/videogames/${videogame._id}`}><img src={videogame.img} alt={videogame.nombre} /></Link>
+                                    <Link to={`/videogames/${videogame._id}`}><img className="h-70" src={videogame.img} alt={videogame.nombre} /></Link>
                                     <h2 to= {`/videogames/${videogame._id}`}>{videogame.nombre}</h2>
                                     </div>
                             })}
