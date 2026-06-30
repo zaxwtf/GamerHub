@@ -48,7 +48,9 @@ function RegisterForm({className}){
         
 
     return(
-        <form onSubmit={handleSubmit} className={`mx-auto flex max-w-md flex-col gap-4 p-6 ${className}`}>
+        <div className={className}>
+        <h1 className="text-3xl font-black text-center">Registrarse</h1>
+        <form onSubmit={handleSubmit} className={`mx-auto flex max-w-md flex-col gap-4 p-6 `}>
             <div className="flex flex-col gap-1">
                 <label className="text-xl">userName</label>
                 <input onChange={handleChange} type="text" name="userName" value={data.userName} className="rounded border border-gray-300 px-3 hover:border-purple-500 focus:outline-purple-500"/>
@@ -63,6 +65,8 @@ function RegisterForm({className}){
                 {!errors && res && <p>Login correcto</p>}
             </div>
         </form>
+        </div>
+        
     )
 }
 

@@ -44,7 +44,9 @@ function LoginForm({className}){
         
 
     return(
-        <form onSubmit={handleSubmit} className={`mx-auto flex max-w-md flex-col gap-4 p-6 ${className}`}>
+        <div className={className}>
+        <h1 className="text-3xl font-black text-center">Iniciar sesión</h1>
+        <form onSubmit={handleSubmit} className={`mx-auto flex max-w-md flex-col gap-4 p-6`}>
             <div className="flex flex-col gap-1">
                 <label className="text-xl">Email</label>
                 <input onChange={(e)=> setData({...data, email: e.target.value})} type="email" name="email" value={data.email} className="rounded border border-gray-300 px-3 hover:border-purple-500 focus:outline-purple-500" />
@@ -56,6 +58,8 @@ function LoginForm({className}){
                 
             </div>
         </form>
+        </div>
+        
     )
 }
 
