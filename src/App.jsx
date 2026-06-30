@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { Register } from './Pages/Register'
 import { Login } from './Pages/Login'
 import { Profile } from './Pages/Profile'
+import { PrivateRoute } from './components/PrivateRoute'
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -25,7 +26,10 @@ function App() {
         <Route path='/videogames/:id' element={<VideogamesDetails/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/profile' element={<Profile/>}/>
+        <Route element={<PrivateRoute/>}>
+          <Route path='/profile' element={<Profile/>}/>
+        </Route>
+        
       </Route>
     </Routes>
     </ThemeContext.Provider>
