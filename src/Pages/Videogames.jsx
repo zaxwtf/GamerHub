@@ -28,8 +28,8 @@ function Videogames(){
     
     
         return(
-            <div className="pt-20">
-                <h1>Videojuegos</h1>
+            <div className="pt-17">
+                <h1 className="text-3xl font-black pl-4">Videojuegos</h1>
                     {isLoading && <p>Cargando...</p>}
                     {error && <p>Error:</p>}
                     {!error && !isLoading && (
