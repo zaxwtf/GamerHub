@@ -21,7 +21,7 @@ function LoginForm({className}){
         setIsLoading(true)
         try {
             await login(data.email, data.password)
-            navigate("/videogames")
+            navigate("/profile")
         } catch (errors) {
             setErrors(errors.message)
         }finally{
@@ -41,7 +41,7 @@ function LoginForm({className}){
         return errors
     }
     
-        
+    if (isLoading) return(<p className={className}>Cargando...</p>)
 
     return(
         <div className={className}>
