@@ -31,10 +31,12 @@ function VideogamesDetails(){
         {isLoading && <p>Cargando...</p>}
         {error && <p>Error: {error}</p>}
         {!isLoading && !error && (
-        <div>
-            <h2>{videogame.nombre}</h2>
-            <img src={videogame.img} alt={videogame.nombre} />
+        <div className="pt-17 flex flex-col items-center gap-4">
+            <h2 className="text-2xl font-black">{videogame.nombre}</h2>
+            <img className="h-80" src={videogame.img} alt={videogame.nombre} />
             <FavButton juego={videogame._id}></FavButton>
+            <h2 className="text-xl font-black"> Descripción</h2>
+            <p className="m-3">{videogame.description}</p>
         </div>
         )}
         
