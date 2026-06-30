@@ -3,7 +3,7 @@ import { useAuth } from "../hooks/useAuth";
 import { useFetch } from "../hooks/useFetch";
 
 
-function FavButton({juego}) {
+function FavButton({juegoID}) {
     const {loadProfile, token} = useAuth()
     const [usuario, setUsuario] = useState(null)
     
@@ -15,8 +15,24 @@ function FavButton({juego}) {
         getProfile()
     }, [])
 
+    function inFav(){
+        return usuario?.user.juegosFav.includes(juegoID)
+    }
+
+    function deleteGameFav(){
+        const {data, isLoading, error} = useFetch("https://backendproyect-m2.onrender.com/api/usuarios/profile/favs/delete", {method: "DELETE", headers: {'Content-Type': 'application/json'}, body: JSON.stringify({gameId: juegoID})})
+    }
+
+    async function handleFavGames() {
+        inFav() ? useFetch("https://backendproyect-m2.onrender.com/api/usuarios/profile/favs/delete", {method: "DELETE", headers: {'Content-Type': 'application/json'}, body: JSON.stringify({gameId: juegoID})}) : "Guardar en favoritos"
+    }
+
+    
+
     return(
-        <button onClick={usuario?.user.juegosFav.includes(juego) ? useFetch("https://backendproyect-m2.onrender.com/api/usuarios/profile/favs/delete", {method: "DELETE", headers: {'Content-Type': 'application/json'}, body: JSON.stringify({gameId: juego})}) : "Guardar en favoritos"} className="bg-red-500">{usuario?.user.juegosFav.includes(juego) ? "Quitar de favoritos" : "Guardar en favoritos"}</button>
+        <button className="bg-purple-500 border-2 rounded-lg p-1 hover:bg-purple-700">
+            {inFav() ? "Quitar de favoritos" : "Guardar en favoritos"}
+        </button>
     )
 }
 export{
