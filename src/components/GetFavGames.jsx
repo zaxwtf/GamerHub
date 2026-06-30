@@ -14,8 +14,8 @@ import { useAuth } from "../hooks/useAuth";
             <div className="flex flex-wrap">
                 {data?.juegosFav.map(juego =>{
                     return(
-                        <div>
-                            <Link to={`/videogames/${juego?._id}`} key={data?.juegosFav.indexOf(juego)}><img width="200px" src={juego?.img} alt={juego?.nombre} /></Link>
+                        <div className="w-[47vw] mt-10 sm:w-[32vw] md:w-[24.2vw] lg:w-[19vw]">
+                            <Link to={`/videogames/${juego?._id}`} key={data?.juegosFav.indexOf(juego)}><img className="h-70" src={juego?.img} alt={juego?.nombre} /></Link>
                             <p>{juego.nombre}</p>
                         </div>
                         
