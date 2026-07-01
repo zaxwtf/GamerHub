@@ -8,7 +8,6 @@ function RegisterForm({className}){
     function handleChange(e){
         const {name, value} = e.target
         setData((prev)=>({...prev, [name]: value}))
-        console.log(name, value)
     }
 
     function handleSubmit(e){
@@ -23,9 +22,9 @@ function RegisterForm({className}){
         const errors = {}
 
         if (!data.userName.trim()) errors.name = "el nombre de usuario es obligatorio"
-        if (data.userName.trim().length > 20) errors.name = "el nombre de usuario no puede tener mas de 20 caracteres"
-        if (!data.email.includes("@")) errors.email = "email no valido"
-        if (data.password.length < 6) errors.password = "La contraseña debe tener mas de 6 caracteres"
+        if (data.userName.trim().length > 40) errors.name = "el nombre de usuario no puede tener mas de 20 caracteres"
+        if (data.password.length < 8 && data.password.length > 40) errors.password = "La contraseña debe tener mas de 8 caracteres y menos de 40"
+        if (data.email.length > 40) errors.email = "El email no puede tener mas de 40 caracteres"
 
         return errors
     }
