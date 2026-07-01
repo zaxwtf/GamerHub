@@ -23,7 +23,7 @@ function LoginForm({className}){
         try {
             setIsLoading(true)
             await login(data.email, data.password)
-            navigate("/videogames")
+            navigate("/profile")
         } catch (errors) {
             setErrors(errors.message)
         }finally{

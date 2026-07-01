@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 function RegisterForm({className}){
     const [data, setData] = useState({userName:"", email:"", password:"", juegosFav:[]})
-    const [res, setRes] = useState(null)
     const [errors, setErrors] = useState({})
+    const navigate = useNavigate()
+    const {login} = useAuth()
 
     function handleChange(e){
         const {name, value} = e.target
@@ -13,8 +16,10 @@ function RegisterForm({className}){
     function handleSubmit(e){
         e.preventDefault()
         const foundedErrors = validate(data)
+        console.log(foundedErrors)
         setErrors(foundedErrors)
-        sendRegister()
+        console.log(data)
+        if (Object.keys(errors).length === 0) sendRegister()
 
     }
 
@@ -28,6 +33,8 @@ function RegisterForm({className}){
 
         return errors
     }
+
+    
     
 
         async function sendRegister() {
@@ -38,10 +45,11 @@ function RegisterForm({className}){
                     body: JSON.stringify(data)
                 })
                 if (!response.ok) throw new Error("error al enviar datos de registro")
-                const datos = await response.json()
-                setRes(datos)
+                await login(data.email, data.password)
+                navigate("/profile")
             } catch (error) {
-            setErrors(error.message)
+                console.log(error)
+            setErrors(error)
         }
         }
         
@@ -53,15 +61,14 @@ function RegisterForm({className}){
             <div className="flex flex-col gap-1">
                 <label className="text-xl">userName</label>
                 <input onChange={handleChange} type="text" name="userName" value={data.userName} className="rounded border border-gray-300 px-3 hover:border-purple-500 focus:outline-purple-500"/>
-                {errors.name && <span>{errors.name}</span>}
+                {errors.name && <span className="text-red-500">{errors.name}</span>}
                 <label className="text-xl">Email</label>
                 <input onChange={handleChange} type="email" name="email" value={data.email} className="rounded border border-gray-300 px-3 hover:border-purple-500 focus:outline-purple-500" />
-                {errors.email && <span>{errors.email}</span>}
+                {errors.email && <span className="text-red-500">{errors.email}</span>}
                 <label className="text-xl">Password</label>
                 <input onChange={handleChange} type="password" name="password" value={data.password} className="rounded border border-gray-300 px-3 hover:border-purple-500 focus:outline-purple-500" />
-                {errors.password && <span>{errors.password}</span>}
+                {errors.password && <span className="text-red-500">{errors.password}</span>}
                 <button className="rounded border border-purple-500 px-3 mt-6 hover:bg-purple-600 transition duration-400">Enviar</button>
-                {!errors && res && <p>Login correcto</p>}
             </div>
         </form>
         </div>

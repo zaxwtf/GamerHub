@@ -6,7 +6,7 @@ function LoadVideogames(){
         const [isLoading, setIsLoading] = useState(false)
         const [error, setError] = useState(null)
 
-        const API = import.meta.env.VITE_API_URL
+        const API = import.meta.env.VITE_API_URL || "https://backendproyect-m2.onrender.com/api"
     
         useEffect(()=>{
             async function load() {
