@@ -5,6 +5,7 @@ import { useAuth } from "../hooks/useAuth";
 function RegisterForm({className}){
     const [data, setData] = useState({userName:"", email:"", password:"", juegosFav:[]})
     const [errors, setErrors] = useState({})
+    const [fetchErrors, setFetchErrors] = useState({})
     const navigate = useNavigate()
     const {login} = useAuth()
 
@@ -16,10 +17,13 @@ function RegisterForm({className}){
     function handleSubmit(e){
         e.preventDefault()
         const foundedErrors = validate(data)
-        console.log(foundedErrors)
         setErrors(foundedErrors)
-        console.log(data)
-        if (Object.keys(errors).length === 0) sendRegister()
+        if (Object.keys(errors).length > 0){
+            return
+        }else{
+            sendRegister()
+        }
+        
 
     }
 
@@ -28,8 +32,8 @@ function RegisterForm({className}){
 
         if (!data.userName.trim()) errors.name = "el nombre de usuario es obligatorio"
         if (data.userName.trim().length > 40) errors.name = "el nombre de usuario no puede tener mas de 20 caracteres"
-        if (data.password.length < 8 && data.password.length > 40) errors.password = "La contraseña debe tener mas de 8 caracteres y menos de 40"
-        if (data.email.length > 40) errors.email = "El email no puede tener mas de 40 caracteres"
+        if (data.password.length < 8 || data.password.length > 40) errors.password = "La contraseña debe tener mas de 8 caracteres y menos de 40"
+        if (data.email.length > 40 || !data.email) errors.email = "El email es obligatorio y no puede tener mas de 40 caracteres"
 
         return errors
     }
@@ -48,8 +52,7 @@ function RegisterForm({className}){
                 await login(data.email, data.password)
                 navigate("/profile")
             } catch (error) {
-                console.log(error)
-            setErrors(error)
+                setFetchErrors(error)
         }
         }
         
@@ -68,6 +71,7 @@ function RegisterForm({className}){
                 <label className="text-xl">Password</label>
                 <input onChange={handleChange} type="password" name="password" value={data.password} className="rounded border border-gray-300 px-3 hover:border-purple-500 focus:outline-purple-500" />
                 {errors.password && <span className="text-red-500">{errors.password}</span>}
+                {fetchErrors.message && !errors && <span className="text-red-500">{fetchErrors.message}</span>}
                 <button className="rounded border border-purple-500 px-3 mt-6 hover:bg-purple-600 transition duration-400">Enviar</button>
             </div>
         </form>
