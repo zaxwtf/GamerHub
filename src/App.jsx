@@ -13,7 +13,7 @@ import { Profile } from './Pages/Profile'
 import { PrivateRoute } from './components/PrivateRoute'
 
 function App() {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState(localStorage.getItem("dianoche") || "light")
 
   return (
     <>
@@ -29,7 +29,6 @@ function App() {
         <Route element={<PrivateRoute/>}>
           <Route path='/profile' element={<Profile/>}/>
         </Route>
-        
       </Route>
     </Routes>
     </ThemeContext.Provider>
