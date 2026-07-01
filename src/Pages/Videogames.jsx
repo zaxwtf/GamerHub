@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { ThemeContext } from "../context/ThemeContext"
+
 
 function Videogames(){
+        const {theme} = useContext(ThemeContext)
         const [videogames, setVideogames] = useState(null)
         const [isLoading, setIsLoading] = useState(false)
         const [error, setError] = useState(null)
@@ -28,7 +31,7 @@ function Videogames(){
     
     
         return(
-            <div className="pt-17">
+            <div className={`pt-17 ${theme === "dark" ? "bg-neutral-900 text-white" : "bg-white"}`}>
                 <h1 className="text-3xl font-black pl-4">Videojuegos</h1>
                     {isLoading && <p>Cargando...</p>}
                     {error && <p>Error:</p>}

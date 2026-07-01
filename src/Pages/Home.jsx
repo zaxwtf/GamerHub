@@ -2,10 +2,15 @@
 import Card from "../components/Card"
 import { LoadVideogames } from "../components/LoadVideogames"
 import { RegisterForm } from "../components/RegisterForm"
+import { ThemeContext } from "../context/ThemeContext"
+import { useContext } from "react"
+
 
 function Home(){
+    const {theme} = useContext(ThemeContext)
     return(
-        <div className="flex w-[99%] flex-col items-center ">
+        <div className={`flex w-99.9 flex-col items-center ${theme === "dark" ? "bg-neutral-900 text-white" : "bg-white"}`}>
+            
             <div className="bannerHome ">
                 <img className="w-[100vw] m-0 p-0" src="/fondo_GamerHub.jpg" alt="Fondo GamerHub" />
             </div>
